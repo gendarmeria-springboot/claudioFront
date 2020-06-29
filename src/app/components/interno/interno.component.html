@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row justify-content-md-Left">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="form-buscar">
+                <div class="form-group">
+                    <label for="runInterno">Run</label>
+                    <input type="text" class="form-control" id="runInterno" placeholder="12456789-K"
+                        [(ngModel)]="curreninterno.runInterno">
+                </div>
+                <div class="form-group">
+                    <label for="apellidosInterno">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidosInterno"
+                        [(ngModel)]="curreninterno.apellidosInterno">
+                </div>
+                <div class="form-group">
+                    <label for="nombresInterno">Nombres</label>
+                    <input type="text" class="form-control" id="nombresInterno"
+                        [(ngModel)]="curreninterno.nombresInterno">
+                </div>
+                <button type="submit" (click)="buscar()" *ngIf="showBuscarButton" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" id="resBusqueda">
+    <div class="row">
+      <div class="col-sm">
+        <div class="item">Run</div>
+      </div>
+      <div class="col-sm">
+        <div class="item">Apellidos</div>
+        
+      </div>
+      <div class="col-sm">
+        <div class="item">Nombres</div>
+        
+      </div>
+    </div>
+  </div>

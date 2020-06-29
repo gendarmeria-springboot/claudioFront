@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row justify-content-md-center ">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 ">
+                <img src="../../../assets/img/cabecera.jpg" alt="" width="350" height="126">
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+        <div class="form-login">
+          <div class="form-group">
+            <label for="usuario">Usuario</label>
+            <input type="text" class="form-control" id="usuario" aria-describedby="usuarioHelp" [(ngModel)]="currenlogin.usuario">
+            <small id="emailHelp" class="form-text text-muted">Ingrese usuario institucional</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="currenlogin.password">
+          </div>
+          
+          <button type="submit" (click)="login()" *ngIf="showLoginButton" class="btn btn-primary">Iniciar</button>
+        </div>
+      </div>
+    </div>
+  </div>
