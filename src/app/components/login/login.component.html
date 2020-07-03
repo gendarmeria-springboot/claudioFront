@@ -1,7 +1,7 @@
 <div class="container-fluid">
-    <div class="row justify-content-md-center ">
+    <div class="row justify-content-md-left ">
         <div class="col-12 col-sm-6 col-md-4 col-lg-2 ">
-                <img src="../../../assets/img/cabecera.jpg" alt="" width="350" height="126">
+                <img src="../../../assets/img/cabecera1.jpg" alt="" width="1400" height="126">
         </div>
     </div>
     <div class="row justify-content-md-center">
@@ -17,8 +17,16 @@
             <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="currenlogin.password">
           </div>
           
-          <button type="submit" (click)="login()" *ngIf="showLoginButton" class="btn btn-primary">Iniciar</button>
+          <button type="submit" (click)="login()"  class="btn btn-primary">Iniciar</button>
         </div>
       </div>
     </div>
   </div>
+  <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="line-scale-party"
+>
+  <p style="font-size: 20px; color: white">Cargando Aplicación...</p>
+</ngx-spinner>

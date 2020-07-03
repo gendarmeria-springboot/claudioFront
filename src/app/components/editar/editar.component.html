@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="row justify-content-md-Left ">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 ">
+            <img src="../../../assets/img/cabecera1.jpg" alt="" width="1400" height="126">
+        </div>
+    </div>
+    <div class="row justify-content-md-Left">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+            <div class="form-buscar">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="id" 
+                        [(ngModel)]="editarinterno.id" hidden>
+                </div>
+                <div class="form-group">
+                    <label for="runInterno">Run</label>
+                    <input type="text" class="form-control" id="runInterno" placeholder="12456789-K"
+                        [(ngModel)]="editarinterno.runInterno">
+                </div>
+                <div class="form-group">
+                    <label for="apellidosInterno">Apellidos</label>
+                    <input type="text" class="form-control" id="apellidosInterno"
+                        [(ngModel)]="editarinterno.apellidosInterno">
+                </div>
+                <div class="form-group">
+                    <label for="nombresInterno">Nombres</label>
+                    <input type="text" class="form-control" id="nombresInterno"
+                        [(ngModel)]="editarinterno.nombresInterno">
+                </div>
+                <div class="form-group">
+                    <label for="edadInterno">Edad</label>
+                    <input type="text" class="form-control" id="edadInterno"
+                        [(ngModel)]="editarinterno.edadInterno">
+                </div>
+                <div class="form-group">
+                    <label for="sexoInterno">Sexo</label>
+                    <select class="form-control" id="sexoInterno" [(ngModel)]="editarinterno.sexoInterno">
+                        <option value="1">Masculino</option>
+                        <option value="2">Femenino</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="regionInterno">Region</label>
+                    <select class="form-control" id="regionInterno" [(ngModel)]="editarinterno.regionInterno" (change)="getUnidadesByRegion()">
+                        <option *ngFor="let item of itemsRegion" value="{{item.idRegion}}">{{item.nombreRegion}}
+                        </option>
+                         </select>
+                </div>
+                <div class="form-group">
+                    <label for="unidadInterno">Unidad</label>
+                    <select class="form-control" id="unidadInterno" [(ngModel)]="editarinterno.unidadInterno" >
+                        <option *ngFor="let item of itemsUnidad" value="{{item.idUnidad}}">{{item.nombreUnidad}}
+                        </option>
+                         </select>
+                </div>
+                <div>
+                    <table class="table table-striped" border="0">
+                        <tr>
+
+                            <th scope="col"> <button type="submit" (click)="agregar()"
+                                    class="btn btn-secondary">Guardar</button></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

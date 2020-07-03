@@ -6,9 +6,9 @@ import { of } from 'rxjs';
 const routes = {
   insertar: 'interno/insertar',
   actualizar: 'interno/actualizar',
-  eliminar: 'interno/eliminar',
+  eliminar: (id: any) => `/interno/eliminar?id=${id}`,
   buscarId: 'interno/internoFindId',
-  buscarApellidos: 'interno/internoFindApellidos',
+  buscarApellidos: (apellidosInterno: any) => `/interno/internoFindApellidos?apellidos=${apellidosInterno}`,
   buscarRun: (runInterno: any) => `/interno/internoFindRun?run=${runInterno}`
 };
 
@@ -25,36 +25,31 @@ export class InternoService {
 
     if (interno === undefined || interno === null) {
       response.ok = false;
-      response.message = 'login is null.';
+      response.message = 'Apellidos no deben ser vacios para la busqueda.';
       return response;
     }
 
-    if (interno.runInterno === undefined || interno.runInterno === null || interno.runInterno.trim() === '') {
-      return { ok: false, message: 'run interno is null.' };
+    if (interno.apellidosInterno === undefined || interno.apellidosInterno === null || interno.apellidosInterno.trim() === '') {
+      return { ok: false, message: 'Apellidos no deben ser vacios para la busqueda.' };
     }
 
-    /*if (interno.password === undefined || interno.password === null || interno.password.trim() === '') {
-      return { ok: false, message: 'password is null.' };
-    }*/
+ 
 
-    return { ok: true, message: 'login is a valid object.' };
+    return { ok: true, message: 'interno is a valid object.' };
   }
 
-  buscarRun(runInterno: any) {
-     this.apiService.get(routes.buscarRun(runInterno))
-     .pipe(
-      catchError(err => {
-        console.error(`este error se ejecuta antes del res del subscribe: ${err}`);
-        return of([]);
-      })
-    )
-      .subscribe(
-        res => {
-          console.log(res);
-        },
-        err => {
-          console.error(`este error se ejecuta cuando http falla: ${err}`);
-        });
+  
+
+  getByRun(runInterno: any) {
+    return this.apiService.get(routes.buscarRun((runInterno)))
+  }
+
+  getByApellidos(apellidosInterno: any) {
+    return this.apiService.get(routes.buscarApellidos((apellidosInterno)))
+  }
+
+  eliminar(id: any) {
+    return this.apiService.delete(routes.eliminar((id)))
   }
 
 }
